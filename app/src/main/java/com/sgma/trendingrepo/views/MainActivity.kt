@@ -1,7 +1,8 @@
-package com.sgma.trendingrepo
+package com.sgma.trendingrepo.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sgma.trendingrepo.R
 
 class MainActivity : AppCompatActivity() {
 
