@@ -1,4 +1,4 @@
-package com.sgma.trendingrepo.models
+package com.sgma.trendingrepo.api.models
 
 data class Item(
     val archive_url: String,
