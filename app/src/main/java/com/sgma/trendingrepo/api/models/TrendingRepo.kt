@@ -1,4 +1,4 @@
-package com.sgma.trendingrepo.models
+package com.sgma.trendingrepo.api.models
 
 data class TrendingRepo(
     val incomplete_results: Boolean,
