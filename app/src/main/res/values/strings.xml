@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TrendingRepo</string>
+
+    <string name="text_header_trending_value">Trending Repo</string>
+    <string name="text_footer_trending_value">Trending</string>
+
+    <string name="content_img_desc">Default desc</string>
 </resources>

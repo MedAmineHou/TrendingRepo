@@ -11,6 +11,6 @@ interface TrendingApiService {
     @GET(BuildConfig.TRENDING_ENDPOINT)
     fun getTrendingRepo(
         @Query("q") q: String, @Query("sort") sort: String = "stars",
-        @Query("order") order: String = "desc"
+        @Query("order") order: String = "desc",@Query("page") page: Int
     ): Observable<TrendingRepo>
 }

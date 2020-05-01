@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="title_text_size">13sp</dimen>
+    <dimen name="subtitle_text_size">12sp</dimen>
+
+
+    <dimen name="detailContainer_margin">10dp</dimen>
+    <dimen name="footerContainer_margin">10dp</dimen>
+
+
+    <dimen name="ownerAvatar_width">30dp</dimen>
+    <dimen name="ownerName_margin">5dp</dimen>
+    <dimen name="starsImage_width">20dp</dimen>
+
+
+</resources>
