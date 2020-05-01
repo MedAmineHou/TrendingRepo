@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_card_glow"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/detailContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailContainer_margin"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/repoName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:singleLine="true"
+            android:textAllCaps="true"
+            android:textColor="@color/label_first_color"
+            android:textSize="@dimen/title_text_size" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/repoDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"
+            android:textColor="@color/label_first_color"
+            android:textSize="@dimen/title_text_size" />
+
+        <RelativeLayout
+            android:id="@+id/footerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/footerContainer_margin">
+
+            <LinearLayout
+                android:id="@+id/ownerContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ownerAvatar"
+                    android:layout_width="@dimen/ownerAvatar_width"
+                    android:layout_height="@dimen/ownerAvatar_width"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/content_img_desc" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ownerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/ownerName_margin"
+                    android:layout_marginEnd="@dimen/ownerName_margin"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:singleLine="true"
+                    android:textColor="@color/label_first_color"
+                    android:textSize="@dimen/subtitle_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/starsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/starsImage"
+                    android:layout_width="@dimen/starsImage_width"
+                    android:layout_height="@dimen/starsImage_width"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/content_img_desc"
+                    android:src="@drawable/star_icon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/starsNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/ownerName_margin"
+                    android:layout_marginEnd="@dimen/ownerName_margin"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:singleLine="true"
+                    android:textColor="@color/label_first_color"
+                    android:textSize="@dimen/subtitle_text_size" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

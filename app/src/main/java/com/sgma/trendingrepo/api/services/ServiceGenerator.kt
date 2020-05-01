@@ -14,8 +14,8 @@ class ServiceGenerator {
         fun <S> createService(serviceClass: Class<S>, baseUrl: String, timeout: Long): S{
             val httpClient = OkHttpClient.Builder()
 
-            httpClient.connectTimeout(timeout, TimeUnit.MILLISECONDS)
-            httpClient.readTimeout(timeout, TimeUnit.MILLISECONDS)
+            httpClient.connectTimeout(timeout, TimeUnit.SECONDS)
+            httpClient.readTimeout(timeout, TimeUnit.SECONDS)
 
             val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
