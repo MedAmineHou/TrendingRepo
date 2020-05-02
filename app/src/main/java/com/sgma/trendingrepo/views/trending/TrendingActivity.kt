@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sgma.trendingrepo.R
 import com.sgma.trendingrepo.adapters.TrendingRepoAdapter
 import com.sgma.trendingrepo.api.models.TrendingRepo
@@ -15,6 +16,7 @@ class TrendingActivity : AppCompatActivity(), TrendingContract.TrendingView {
     private lateinit var mTrendingRepo: TrendingRepo
     private lateinit var mTrendingRepoAdapter: TrendingRepoAdapter
     private var mPage = 1
+    private var isLoading = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,14 +24,41 @@ class TrendingActivity : AppCompatActivity(), TrendingContract.TrendingView {
 
         this.mTrendingPresenter = TrendingPresenter()
         this.mTrendingPresenter.attachView(this)
+        this.loadItems()
+
+        trending_repo_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val lastVisibleElement: LinearLayoutManager =
+                    trending_repo_list.layoutManager as LinearLayoutManager
+                if (!isLoading && lastVisibleElement.findLastCompletelyVisibleItemPosition() == mTrendingRepo.items.size - 1) {
+                    loadItems()
+                    isLoading = true
+                }
+            }
+        })
+    }
+
+    private fun loadItems() {
         this.mTrendingPresenter.onDoGetTrendingRepo(mPage)
     }
 
+
     override fun doPopulateTrendingRepo(trendingRepo: TrendingRepo) {
-        mTrendingRepo = trendingRepo
-        this.mTrendingRepoAdapter = TrendingRepoAdapter(mTrendingRepo.items, this)
-        trending_repo_list.adapter = mTrendingRepoAdapter
-        trending_repo_list.layoutManager = LinearLayoutManager(this)
+        when (isLoading) {
+            true -> {
+                mTrendingRepo.items.addAll(trendingRepo.items)
+                mTrendingRepoAdapter.notifyDataSetChanged()
+                this.isLoading = false
+            }
+            false -> {
+                mTrendingRepo = trendingRepo
+                this.mTrendingRepoAdapter = TrendingRepoAdapter(mTrendingRepo.items, this)
+                trending_repo_list.adapter = mTrendingRepoAdapter
+                trending_repo_list.layoutManager = LinearLayoutManager(this)
+            }
+        }
+
         this.mPage += 1
     }
 
